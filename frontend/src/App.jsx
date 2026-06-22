@@ -12,14 +12,14 @@ function App() {
   const [hasMore, setHasMore] = useState(true);
 
   const loaderRef = useRef(null);
-
+  const API_URL = process.env.REACT_APP_API_URL;
   const load = async (reset = false, cat = category) => {
     if (loading) return;
 
     setLoading(true);
 
     try {
-      let url = "http://localhost:5000/products?limit=20";
+      let url = `${API_URL}/products?limit=20`;
 
       // Search by product name
       if (searchName.trim()) {
